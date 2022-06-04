@@ -7,6 +7,7 @@ import './App.css';
 function App() {
   
   const [classScroll, setClassScroll] = useState('');
+  const [isType, setIsType] = useState(false);
 
   const home = useRef(null);
 
@@ -53,17 +54,14 @@ function App() {
 
   useEffect(() => {
     openMessage();
-  }, []);
+  }, [isType]);
 
 
   // background change 
   // const checkPointScreen1 = window.screen.height / 1.5 ; //66.66%  //อนากให้เปลี่ยนรูปแบบ 100% ในส่วนไหนของ screen
   window.addEventListener("scroll", () => {
-    // *** This is where we at ***
     const currentScroll = window.scrollY;
-
-    // This is 1 to 0
-    // opacity decrease slightly (start from y = 0, opacity = 1 to )
+    // opacity decrease slightly from 1 to 0
     const checkPointScreenOne = window.screen.height / 1.5 ; //66.66% of screen-1,  opacity = 0 when come to here
     let opacityValueScreenOne = null;
     if(currentScroll < checkPointScreenOne) {
@@ -74,41 +72,50 @@ function App() {
     }                   // ถ้าไม่ใส่ else จะทำให้เลื่อนลง scroll แล้ว opacity มันจะกลับไปเป็นค่าเดิม สีจะถูกเติมเข้ามา
     document.querySelector('.screen-1').style.opacity = opacityValueScreenOne;
 
+    // opacity increase slightly from 0 to 1 
+    const h = window.innerHeight;    
+    const msg1 = document.querySelector('.msg-1').offsetTop;
+    const msg2 = document.querySelector('.msg-2').offsetTop;
+    const msg3 = document.querySelector('.msg-3').offsetTop;
+    const msg4 = document.querySelector('.msg-4').offsetTop;
+    const checkPointMSG1 = msg1 / (h*2) ; // *2 เพื่อจะลดค่า checkpoint หน่อย เดี๋ยวไม่ทันได้ fadin มันจะเลยขึ้นไปหน้าจอเสียก่อน่่
+    const checkPointMSG2 = msg2 / (h*2) ; // *2 เพื่อจะลดค่า checkpoint หน่อย เดี๋ยวไม่ทันได้ fadin มันจะเลยขึ้นไปหน้าจอเสียก่อน่่
+    const checkPointMSG3 = msg3 / (h*2) ; // *2 เพื่อจะลดค่า checkpoint หน่อย เดี๋ยวไม่ทันได้ fadin มันจะเลยขึ้นไปหน้าจอเสียก่อน่่
+    const checkPointMSG4 = msg4 / (h*1.5) ; // *2 เพื่อจะลดค่า checkpoint หน่อย เดี๋ยวไม่ทันได้ fadin มันจะเลยขึ้นไปหน้าจอเสียก่อน่่
+    const yToH = currentScroll/h
 
-    // This is 0 to 1
-    // opacity increase slightly ()
-    const h = window.screen.height;    //อันนี้ต้องเอาความสูงของกรอบ main
-    const checkPointMainFirst = null;
-    let opacityMainFirst = 0;
-    if( currentScroll > checkPointMainFirst) {
-      // console.log("Main 1 appear", current)
-      // opacityMainFirst = currentScroll/h - 1.185  
+    if(yToH >= checkPointMSG1) {
+      document.querySelector('.msg-1').style.opacity = (yToH**2.4) - 1; // ยกกำลังเพื่อให้เป็น exponential
+    } else {
+      document.querySelector('.msg-1').style.opacity = 0; 
     } 
-    // else {
-      
-    // } 
-    // document.querySelector('.main p:first-of-type').style.opacity = opacityMainFirst;
-
-
-
+    if(yToH >= checkPointMSG2) {
+      document.querySelector('.msg-2').style.opacity = (yToH**1.8) - 2.7; // ยกกำลังเพื่อให้เป็น exponential
+    } else {
+      document.querySelector('.msg-2').style.opacity = 0; 
+    } 
+    if(yToH >= checkPointMSG3) {
+      document.querySelector('.msg-3').style.opacity = (yToH**1.7) - 4.3; // ยกกำลังเพื่อให้เป็น exponential
+    } else {
+      document.querySelector('.msg-3').style.opacity = 0; 
+    } 
+    if(yToH >= checkPointMSG4) {
+      document.querySelector('.msg-4').style.opacity = (yToH**1.8) - 5; // ยกกำลังเพื่อให้เป็น exponential
+      document.querySelector('.msg-4').style.fontSize = `${(yToH**4.2) + (-80)}` + "px"; // ยกกำลังเพื่อให้เป็น exponential
+    } else {
+      document.querySelector('.msg-4').style.opacity = 0; 
+    } 
+    if(yToH >= 1.8) {
+      document.querySelector('.screen-2-2').style.opacity = (yToH**1.2) - 2; // ยกกำลังเพื่อให้เป็น exponential
+    }
   });
 
-
-
-
-  // just test seeing Y axis ------------------ and make text fade in
-  window.onscroll = () => {
-    const y = window.scrollY;  // อันนี้ความสูงของ เคอเซอร์แนวตั้งอะ เริ่มจาก 0
-    const h = window.innerHeight; // same as window.screen.height คือความสูงของหน้าจอ
-    const percent = y/h
-    console.log("Y =", y, " ","window height =" , h, " ","% =", percent);
-  // -----------------------------------------
-  }
-
-  function scrollToSection(elementRef) {
+  // smth is callback (if need be)
+  function scrollToSection(elementRef, smth) {
     window.scrollTo({
       top: elementRef.current.offsetTop, 
       behavior: 'smooth'});
+    if(smth) smth();
   }
   
 
@@ -122,10 +129,10 @@ function App() {
           <div className={`scroll ${classScroll}`}></div>
         </div>
       </div>
-      <div className='screen-2'>
+      <div className='screen-2'>  
         <nav className={`navbar`}>
           <div className='nav-left'>
-            <div className='logo' onClick={() => scrollToSection(home)}>~</div>
+            <div className='logo' onClick={() => scrollToSection(home, setIsType((prev) => !prev))}>~</div>
           </div>
           <div className='nav-right'>
             <div className='about'>about</div> 
@@ -135,15 +142,15 @@ function App() {
         </nav>
         <main className='main'>
           <div className='screen-2-1'>
-            <div className='msg-1'>at the beginning</div> {/* show when y/H = 0.7 */}
-            <div className='msg-2'>sometimes</div>
+            <div className='msg-1'>sometimes</div>
+            <div className='msg-2'>at the beginning</div> 
           </div>
           <div className='screen-2-2'>
             <div className='msg-3'>the simplest things</div>
             <div className='msg-4'>can be challenging</div>
           </div>
         </main>
-      </div>   {/* ^ screen 2 */}
+      </div>   
 
 
 
@@ -153,9 +160,3 @@ function App() {
 
 export default App;
 
-
-// Sometimes
-// The simplest things
-// Can be challenging
-
-// Especially at the beginning

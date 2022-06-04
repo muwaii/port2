@@ -100,17 +100,39 @@ body {
 
 /* screen 2-1 */
 .screen-2-1 {
-    height: 200vh;
-    background-color: pink;
+    font-size: 35px;
+    height: 150vh;
+    /* background-color: pink; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.msg-1 {
+    margin: 300px 0;
+}
 
 /* screen 2-2 */
 .screen-2-2 {
-    height: 200vh;
-    background-color: blueviolet;
+    height: 150vh;
+    color: white;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+.msg-3 {
+    margin-top: 150px;
+    margin-bottom: 550px;
+}
+
+.msg-4 {
+    /* display: block; */
+    /* overflow: hidden; */
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
