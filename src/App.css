@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
+* {
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    margin: 0;
+    font-family: "Source Code Pro";
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* screen-1 */
+.screen-1 {
+    height: 100vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5vh;
+    
+    /* if we want to bg change gradually  */
+    /* transition: opacity 5s; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.open-text {
+    font-size: 2.5vh;
+    word-wrap: break-word;
 }
 
-.App-link {
-  color: #61dafb;
+.scrolldown-symbol-container {
+    font-size: 2.5vh;
+    transition: opacity 1s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.l-1,
+.v-1 {
+    padding-left: 5vh;
+}
+
+.scroll-text-blink {
+    animation: blinker 1s infinite;
+}
+
+@keyframes blinker {
+    50% {opacity: 1%;}
+}
+
+
+/* screen-2 */
+.screen-2 {
+    height: 1400vh;
+    background-color: rgb(255, 255, 255);
+}
+
+.navbar {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #c8c8c8;
+    height: 8vh;
+    padding: 0 10%; 
+    position: sticky; /* it's sticky in screen-2*/
+    top: 0;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    justify-content:center; 
+    /* width: 250px; */
+}
+
+.logo {
+    font-size: 60px;
+    transition: 0.3s;
+}
+
+.logo:hover {
+    font-size: 70px;
+    cursor: pointer;
+}
+
+.about, .project, .contact {
+    height: 8vh;
+    padding: 0 1.5vh;
+    padding-top: 2.2vh;
+    font-size: 17px;
+    transition: 0.5s;
+}
+
+.about:hover, .project:hover, .contact:hover {
+    background-color: #c8c8c8;
+    color: white;
+    cursor: pointer;
+}
+
+.main {
+    font-size: 7vh;
+}
+
+/* screen 2-1 */
+.screen-2-1 {
+    height: 200vh;
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* screen 2-2 */
+.screen-2-2 {
+    height: 200vh;
+    background-color: blueviolet;
 }
