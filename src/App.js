@@ -28,7 +28,7 @@ function App() {
       // console.log('i =', i);
       // console.log(txt.charAt(i));
       i++;
-      setTimeout(typingOpenText, 100);
+      setTimeout(typingOpenText, 1);
       } else {
         setTimeout(() => {
           document.querySelector('.l-1').innerHTML = '|';
@@ -88,7 +88,7 @@ function App() {
       document.querySelector('.msg-1').style.opacity = (yToH**2.4) - 1; // ยกกำลังเพื่อให้เป็น exponential
     } else {
       document.querySelector('.msg-1').style.opacity = 0; 
-    } 
+    }
     if(yToH >= checkPointMSG2) {
       document.querySelector('.msg-2').style.opacity = (yToH**1.8) - 2.7; // ยกกำลังเพื่อให้เป็น exponential
     } else {
@@ -96,6 +96,7 @@ function App() {
     } 
     if(yToH >= checkPointMSG3) {
       document.querySelector('.msg-3').style.opacity = (yToH**1.7) - 4.3; // ยกกำลังเพื่อให้เป็น exponential
+      document.querySelector('.navbar').style.opacity = (yToH**1.7) - 4.3; // ยกกำลังเพื่อให้เป็น exponential
     } else {
       document.querySelector('.msg-3').style.opacity = 0; 
     } 
@@ -156,10 +157,16 @@ function App() {
             <div className='msg-4'>can be challenging</div>
           </div>
         </main>
+        <div className='screen-2-3'>
+          <div>asdflasdf</div>
+        </div>
+        <div className='screen-2-4'>
+          <div>asdflasdf</div>
+        </div>
+        <footer>
+          <div>asdflasdf</div>
+        </footer>
       </div>   
-
-
-
     </div>
   );
 }
