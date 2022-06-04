@@ -28,7 +28,7 @@ function App() {
       // console.log('i =', i);
       // console.log(txt.charAt(i));
       i++;
-      setTimeout(typingOpenText, 1);
+      setTimeout(typingOpenText, 100);
       } else {
         setTimeout(() => {
           document.querySelector('.l-1').innerHTML = '|';
@@ -42,10 +42,10 @@ function App() {
                   setClassScroll("scroll-text-blink");
                   // document.querySelector('.scroll').classList.add("scroll-text-blink");
                 })
-              }, 100)
-            }, 150)
-          }, 500)
-        }, 800)
+              }, 10)
+            }, 100)
+          }, 100)
+        }, 200)
       }
       
     }
@@ -114,8 +114,13 @@ function App() {
   function scrollToSection(elementRef, smth) {
     window.scrollTo({
       top: elementRef.current.offsetTop, 
-      behavior: 'smooth'});
-    if(smth) smth();
+      behavior: 'smooth'
+    });
+
+    if(smth) {
+      smth();
+    };
+
   }
   
 
@@ -132,7 +137,8 @@ function App() {
       <div className='screen-2'>  
         <nav className={`navbar`}>
           <div className='nav-left'>
-            <div className='logo' onClick={() => scrollToSection(home, setIsType((prev) => !prev))}>~</div>
+            {/* <div className='logo' onClick={() => scrollToSection(home)}>~</div> */}
+            <div className='logo' onClick={() => scrollToSection(home, setTimeout(() => { return setIsType((prev) => !prev)}, 1000))}>~</div>
           </div>
           <div className='nav-right'>
             <div className='about'>about</div> 
