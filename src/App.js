@@ -33,7 +33,7 @@ function App() {
       // console.log('i =', i);
       // console.log(txt.charAt(i));
       i++;
-      setTimeout(typingOpenText, 1);
+      setTimeout(typingOpenText, 140);
       } else {
         setTimeout(() => {
           document.querySelector('.l-1').innerHTML = '|';
