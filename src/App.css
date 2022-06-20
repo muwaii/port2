@@ -10,13 +10,14 @@ body {
 /* screen-1 */
 .screen-1 {
     height: 100vh;
+    /* background-color: #353a40; */
     background-color: black;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 5vh;
-    
+
     /* if we want to bg change gradually  */
     /* transition: opacity 5s; */
 }
@@ -41,9 +42,10 @@ body {
 }
 
 @keyframes blinker {
-    50% {opacity: 1%;}
+    50% {
+        opacity: 1%;
+    }
 }
-
 
 /* screen-2 */
 .screen-2 {
@@ -52,26 +54,29 @@ body {
 }
 
 .navbar {
-    background-color: white;
+    color: #ffffff;
+    background-color: #21252b;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #c8c8c8;
+    /* border-bottom: 1px solid #c8c8c8; */
     height: 8vh;
-    padding: 0 10%; 
+    padding: 0 8%;
     position: sticky; /* it's sticky in screen-2*/
     top: 0;
     opacity: 0;
+    z-index: 49;
 }
 
 .nav-right {
     display: flex;
     align-items: center;
-    justify-content:center; 
+    justify-content: center;
     /* width: 250px; */
 }
 
 .logo {
+    color: rgb(255, 173, 22);
     font-size: 60px;
     transition: 0.3s;
 }
@@ -81,15 +86,20 @@ body {
     cursor: pointer;
 }
 
-.about, .project, .contact {
+.about,
+.project,
+.contact {
     height: 8vh;
-    padding: 0 1.5vh;
+    /* padding: 0 2.5vh; */
+    padding: 0 2vw;
     padding-top: 2.2vh;
     font-size: 17px;
     transition: 0.5s;
 }
 
-.about:hover, .project:hover, .contact:hover {
+.about:hover,
+.project:hover,
+.contact:hover {
     background-color: #c8c8c8;
     color: white;
     cursor: pointer;
@@ -118,7 +128,7 @@ body {
 .screen-2-2 {
     height: 150vh;
     color: white;
-    background-color: black;
+    background-color: #282c34;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -132,23 +142,154 @@ body {
 }
 
 .msg-4 {
+    text-align: center;
+    width: 100vw;
     /* display: block; */
-    /* overflow: hidden; */
-    text-overflow: ellipsis;
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
     white-space: nowrap;
+    color: rgb(255, 156, 28);
 }
 
 .screen-2-3 {
-    height: 92vh;
-    background-color: green;
+    padding-top: 8vh;
+    color: #ffffff;
+    height: 100vh;
+    background-color: #282c34;
+    /* background-color: pink; */
+    /* border: 2px solid orange; */
+
 }
+
+.about-container {
+    padding-top: 60px;
+    padding-left: 50px;
+}
+
+.skills {
+    padding-top: 50px;
+    padding-bottom: 18px;
+}
+
+.skills-icon {
+    font-size: 20px;
+}
+
+.html-icon {
+    color: #dd4b25;
+}
+
+.css-icon {
+    color: #0c6fb2;
+}
+
+.js-icon {
+    color: #eab925;
+}
+
+.react-icon {
+    color: #63dbfb;
+}
+
+
+
 
 .screen-2-4 {
-    height: 92vh;
-    background-color: pink;
+    padding-top: 8vh;
+    color: #ffffff;
+    height: 100vh;
+    background-color: #282c34;
+    /* border: 2px solid red; */
 }
 
-.footer {
+footer {
+    padding-top: 8vh;
+    color: #ffffff;
     height: 40vh;
-    background-color: skyblue;
+    background-color: #21252b;
+    /* border: 2px solid yellow; */
+}
+
+.email {
+    text-align: center;
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+}
+
+.email:hover {
+    color:rgb(255, 156, 28);
+}
+
+.contact-list {
+    display: flex;
+    justify-content: center;
+}
+
+.github,
+.ig,
+.twitter,
+.line {
+    filter: invert(42%) sepia(93%) hue-rotate(352deg) brightness(90%)
+        contrast(219%);
+    margin: 1.2vw;
+    margin-top: 3vw;
+    cursor: pointer;
+}
+
+.github:hover {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(90deg)
+        brightness(500%) contrast(50%);
+}
+
+.line:hover {
+    filter: invert(8%) sepia(100%) saturate(16481%) hue-rotate(90deg)
+        brightness(302%) contrast(43%);
+}
+
+.twitter:hover {
+    filter: invert(8%) sepia(100%) saturate(16481%) hue-rotate(225deg)
+        brightness(302%) contrast(43%);
+}
+
+.ig:hover {
+    filter: invert(8%) sepia(100%) saturate(16481%) hue-rotate(360deg)
+        brightness(302%) contrast(43%);
+}
+
+.card-elements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.project-header {
+    padding-top: 70px;
+    padding-bottom: 50px;
+    text-align: center;
+    font-size: 40px;
+}
+
+.image-project {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.link-ele {
+    margin: 15px;
+    position: static;
+    z-index: 44;
+    transition: 0.5s;
+}
+
+.link-ele:hover {
+    background-color: #a4a4a4;
+}
+
+.title {
+    text-decoration: none;
+    color: white;
+    text-align: center;
 }

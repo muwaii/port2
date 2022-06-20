@@ -1,8 +1,10 @@
 // import { type } from '@testing-library/user-event/dist/type';
 import { useEffect, useRef, useState } from 'react';
 import './App.css';
-
-
+import data from './data';
+import { AiFillHtml5 } from 'react-icons/ai';
+import { IoLogoCss3, IoLogoJavascript } from 'react-icons/io';
+import { FaReact, FaPython } from 'react-icons/fa';
 
 function App() {
   
@@ -10,6 +12,9 @@ function App() {
   const [isType, setIsType] = useState(false);
 
   const home = useRef(null);
+  const about = useRef(null);
+  const project = useRef(null);
+  const contact = useRef(null);
 
 
 
@@ -90,7 +95,7 @@ function App() {
       document.querySelector('.msg-1').style.opacity = 0; 
     }
     if(yToH >= checkPointMSG2) {
-      document.querySelector('.msg-2').style.opacity = (yToH**1.8) - 2.7; // ยกกำลังเพื่อให้เป็น exponential
+      document.querySelector('.msg-2').style.opacity = (yToH**1.8) - 2.6; // ยกกำลังเพื่อให้เป็น exponential
     } else {
       document.querySelector('.msg-2').style.opacity = 0; 
     } 
@@ -123,6 +128,16 @@ function App() {
     };
 
   }
+
+  console.log(data.data);
+  const cardElements = data.data.projects.map((project) => {
+    return (
+      <a className='link-ele' href={project.link}>
+        <img className={`image-project ${project.id}`} src={project.image} />
+        <div className='title'>{project.name}</div>
+      </a>
+    )
+  });
   
 
   return (
@@ -142,9 +157,9 @@ function App() {
             <div className='logo' onClick={() => scrollToSection(home, setTimeout(() => { return setIsType((prev) => !prev)}, 1000))}>~</div>
           </div>
           <div className='nav-right'>
-            <div className='about'>about</div> 
-            <div className='project'>project</div> 
-            <div className='contact'>contact</div> 
+            <div className='about' onClick={() => scrollToSection(about)}>about</div> 
+            <div className='project' onClick={() => {scrollToSection(project)}}>project</div> 
+            <div className='contact' onClick={() => {scrollToSection(contact)}}>contact</div> 
           </div>
         </nav>
         <main className='main'>
@@ -157,14 +172,40 @@ function App() {
             <div className='msg-4'>can be challenging</div>
           </div>
         </main>
-        <div className='screen-2-3'>
-          <div>asdflasdf</div>
+        <div className='screen-2-3' ref={about}>
+          <div className='about-container'>
+            <div className='about-me'>
+              <h1>About</h1>
+              <div>Hello, I'm Watt</div>
+              <div>Self-taught developer</div>
+            </div>
+            <div className='about-skill'>
+              <div className='skills'>Skill</div>
+              <div className='skills-icon'>
+                <div className='html-icon'><AiFillHtml5/> HTML</div>
+                <div className='css-icon'><IoLogoCss3/> CSS</div>
+                <div className='js-icon'><IoLogoJavascript/> Javascript</div>
+                <div className='react-icon'><FaReact/> ReactJS</div>
+                <div className='python-icon'><FaPython/> Python</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className='screen-2-4'>
-          <div>asdflasdf</div>
+        <div className='screen-2-4' ref={project}>
+          <div className='project-header'>Let's see my project</div>
+          <div className='card-elements'>
+            {cardElements}
+          </div>
         </div>
-        <footer>
-          <div>asdflasdf</div>
+        <footer ref={contact}>
+          <div className='email'><a className='email' href = "mailto: muawatt@gmail.com">muawatt@gmail.com</a></div>
+          <div className='contact-list'>
+            <a href='https://github.com/muwaii'><img className='github' src="github-icon.svg" /></a>
+            <a href='https://www.instagram.com/watmua/'><img className='ig' src="ig-icon.svg" /></a>
+            <a href='https://twitter.com/Yok97708731'><img className='twitter' src="twitter-icon.svg" /></a>
+            <a href='https://line.me/ti/p/2XwPPYDJsc'><img className='line' src="line-icon.svg" /></a>
+            
+          </div>
         </footer>
       </div>   
     </div>
@@ -172,4 +213,3 @@ function App() {
 }
 
 export default App;
-
