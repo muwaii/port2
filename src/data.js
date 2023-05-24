@@ -29,6 +29,20 @@ export default {
         "link": "https://catmemegen.netlify.app/",
         "image": "imagedata/getmeme-img.png",
       },
+      {
+        "id": "5",
+        "name": "URL Shorter",
+        "description": "",
+        "link": "https://shortermy.onrender.com",
+        "image": "imagedata/urlshorterner.jpeg",
+      },
+      {
+        "id": "6",
+        "name": "GO get it",
+        "description": "",
+        "link": "https://sp-1.netlify.app/",
+        "image": "imagedata/plantoget.jpg",
+      },
     ]  
   }
 }

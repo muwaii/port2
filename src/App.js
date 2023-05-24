@@ -1,4 +1,3 @@
-// import { type } from '@testing-library/user-event/dist/type';
 import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import data from './data';
@@ -22,7 +21,7 @@ function App() {
   function openText() {
     
     let i = 0;      // Data privacy
-    const txt = " Apply for a front-end developer job";
+    const txt = " Apply for software developer jobs";
 
     return  function typingOpenText() {
       document.documentElement.scrollTop = 0;
@@ -58,7 +57,7 @@ function App() {
   const openMessage = openText(); // openMessage is the same as typingOpenText fucntion
 
   useEffect(() => {
-    openMessage();
+    // openMessage();
   }, [isType]);
 
 
@@ -122,23 +121,35 @@ function App() {
       top: elementRef.current.offsetTop, 
       behavior: 'smooth'
     });
-
     if(smth) {
       smth();
     };
-
   }
 
-  console.log(data.data);
-  const cardElements = data.data.projects.map((project) => {
+
+  // version 1
+  // const cardElements = data.data.projects.map((project) => {
+  //   return (
+  //     <a className='link-ele' href={project.link}>
+  //       <img className={`image-project ${project.id}`} src={project.image} />
+  //       <div className='title'>{project.name}</div>
+  //     </a>
+  //   )
+  // });
+  
+  // version 2 
+  const cardElements2 = data.data.projects.map((project) => {
     return (
-      <a className='link-ele' href={project.link}>
-        <img className={`image-project ${project.id}`} src={project.image} />
-        <div className='title'>{project.name}</div>
-      </a>
+      <div className='item'>
+        <div className='content'>
+         <a className='link-ele' href={project.link}>
+          <img className={`image-project ${project.id}`} src={project.image} />
+          <div className='title'>{project.name}</div>
+        </a>
+        </div>
+      </div>
     )
   });
-  
 
   return (
     <div className="App">
@@ -180,7 +191,7 @@ function App() {
               <div>Self-taught developer</div>
             </div>
             <div className='about-skill'>
-              <div className='skills'>Skill</div>
+              <div className='skills'>Skills</div>
               <div className='skills-icon'>
                 <div className='html-icon'><AiFillHtml5/> HTML</div>
                 <div className='css-icon'><IoLogoCss3/> CSS</div>
@@ -192,19 +203,28 @@ function App() {
           </div>
         </div>
         <div className='screen-2-4' ref={project}>
-          <div className='project-header'>Let's see my project</div>
-          <div className='card-elements'>
+          <div className='project-header'>Let's see mini project</div>
+
+          {/* version 1 */}
+          {/* <div className='card-elements'>
             {cardElements}
-          </div>
+          </div> */}
+
+          {/* version 2 */}
+          <section className='out-of-grid'>
+            <div className='grid'>
+              {cardElements2}
+            </div>
+          </section>
+
         </div>
         <footer ref={contact}>
-          <div className='email'><a className='email' href = "mailto: muawatt@gmail.com">muawatt@gmail.com</a></div>
+          <div className='email'><a className='email' href = "mailto: muawatt@gmail.com">watavince@gmail.com</a></div>
           <div className='contact-list'>
             <a href='https://github.com/muwaii'><img className='github' src="github-icon.svg" /></a>
-            <a href='https://www.instagram.com/watmua/'><img className='ig' src="ig-icon.svg" /></a>
-            <a href='https://twitter.com/Yok97708731'><img className='twitter' src="twitter-icon.svg" /></a>
+            <a href='https://www.instagram.com/'><img className='ig' src="ig-icon.svg" /></a>
+            <a href='https://twitter.com/'><img className='twitter' src="twitter-icon.svg" /></a>
             <a href='https://line.me/ti/p/2XwPPYDJsc'><img className='line' src="line-icon.svg" /></a>
-            
           </div>
         </footer>
       </div>   

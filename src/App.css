@@ -164,6 +164,9 @@ body {
 .about-container {
     padding-top: 60px;
     padding-left: 50px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    text-align: center;
 }
 
 .skills {
@@ -293,3 +296,29 @@ footer {
     color: white;
     text-align: center;
 }
+
+.out-of-grid {
+    display: flex;
+    justify-content: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 24px;
+    row-gap: 20px;
+    text-align: center;
+  }
+  
+  .content {
+    color: #242424;
+    /* background-color: #f25fff; */
+    font-weight: 600;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 10px;
+  }
+  
+  .link-ele {
+    margin: auto;  /* center inner content */
+  }
