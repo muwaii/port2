@@ -57,7 +57,7 @@ function App() {
   const openMessage = openText(); // openMessage is the same as typingOpenText fucntion
 
   useEffect(() => {
-    // openMessage();
+    openMessage();
   }, [isType]);
 
 
