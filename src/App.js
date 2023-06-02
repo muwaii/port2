@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import data from "./data";
 // icon
-import { AiFillHtml5 } from "react-icons/ai";
+import { AiFillHtml5, AiFillPushpin } from "react-icons/ai";
 import { IoLogoCss3, IoLogoJavascript } from "react-icons/io";
-import { FaReact, FaPython, FaUbuntu } from "react-icons/fa";
+import { FaReact, FaPython, FaUbuntu, FaNodeJs } from "react-icons/fa";
 import { SiRedux, SiPostgresql, SiMongodb, SiExpress } from "react-icons/si";
 import { MdCheckBoxOutlineBlank } from "react-icons/md";
 import { BsEmojiHeartEyes, BsEmojiKiss } from "react-icons/bs";
@@ -37,7 +37,7 @@ function App() {
         setTimeout(() => {
           document.querySelector(".l-1").innerHTML = "|";
           setTimeout(() => {
-            document.querySelector(".v-1").innerHTML = "v";
+            document.querySelector(".v-1").innerHTML = "V";
             setTimeout(() => {
               document.querySelector(".scroll").innerHTML = "scroll down";
               setTimeout(() => {
@@ -184,7 +184,7 @@ function App() {
           </section>
           <section className="nav-right">
             <div className="about" onClick={() => scrollToSection(about)}>
-              about
+              About
             </div>
             <div
               className="project"
@@ -192,7 +192,7 @@ function App() {
                 scrollToSection(project);
               }}
             >
-              project
+              Project
             </div>
             <div
               className="contact"
@@ -200,7 +200,7 @@ function App() {
                 scrollToSection(contact);
               }}
             >
-              contact
+              Contact
             </div>
           </section>
         </nav>
@@ -222,7 +222,8 @@ function App() {
               <div>Hi I'm Watt</div>
               <div>Self-taught developer</div>
               <div>Less than 1 year of</div>
-              <div>programming experience🤗</div>
+              <div>programming experience</div>
+              <div>and looking for experience 🤗</div>
             </section>
             <section className="about-skill-box">
               <div className="skill-text">Skill</div>
@@ -242,6 +243,9 @@ function App() {
                 <div className="redux-icon">
                   <SiRedux className="all-icon" /> Redux
                 </div>
+                <div className="node-icon">
+                  <FaNodeJs className="all-icon" /> Node
+                </div>
                 <div className="express-icon">
                   <SiExpress className="all-icon" /> Express
                 </div>
@@ -260,7 +264,12 @@ function App() {
               </div>
             </section>
             <section className="about-to-learn-box">
-              <div className="about-to-learn-text about-to">About to learn</div>
+              <div className="about-to-learn-text about-to">
+                <AiFillPushpin /> about to learn
+              </div>
+              <div className="box-icon about-to">
+                <MdCheckBoxOutlineBlank className="all-icon about-to" /> NextJS
+              </div>
               <div className="box-icon about-to">
                 <MdCheckBoxOutlineBlank className="all-icon about-to" /> docker
               </div>
@@ -270,6 +279,7 @@ function App() {
               <div className="box-icon about-to">
                 <MdCheckBoxOutlineBlank className="all-icon about-to" /> Vue
               </div>
+              <div className="box-icon about-to">...more</div>
             </section>
           </div>
         </div>

@@ -34,7 +34,20 @@ body {
 
 .l-1,
 .v-1 {
-  padding-left: 5vh;
+  /* padding-left: 5vh; */
+}
+.scroll,
+.l-1,
+.v-1 {
+  display: flex;
+  justify-content: center;
+}
+.v-1 {
+  margin-top: -12px;
+  margin-bottom: 15px;
+}
+.scroll {
+  margin-bottom: 50px;
 }
 
 .scroll-text-blink {
@@ -78,7 +91,8 @@ body {
 }
 
 .logo {
-  text-shadow: 1px 1px 2px black, 0 0 25px rgb(131, 138, 170), 0 0 5px darkblue;
+  text-shadow: 1px 1px 10px rgb(148, 147, 147), 0 0 25px rgb(49, 61, 98),
+    0 0 5px darkblue;
   color: rgb(255, 173, 22);
   font-size: 60px;
   transition: 0.3s;
@@ -149,6 +163,7 @@ body {
   width: 100vw;
   /* display: block; */
   overflow: hidden;
+  direction: inherit;
   /* text-overflow: ellipsis; */
   white-space: nowrap;
   color: rgb(255, 156, 28);
@@ -186,6 +201,9 @@ body {
 .about-skill-box,
 .about-to-learn-box {
   width: 28%;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .skill-icon {
   font-size: 20px;
@@ -204,6 +222,9 @@ body {
 }
 .redux-icon {
   color: #7248b6;
+}
+.node-icon {
+  color: #73af5b;
 }
 .express-icon {
   color: #c6c6c6;
@@ -227,6 +248,7 @@ body {
 .react-icon,
 .express-icon,
 .redux-icon,
+.node-icon,
 .mongodb-icon,
 .python-icon,
 .psql-icon,
@@ -243,6 +265,7 @@ body {
   color: #ffffff;
   /* height: 100vh; */
   background-color: #282c34;
+
   /* border: 2px solid red; */
   padding-bottom: 10vh;
 }
@@ -333,10 +356,11 @@ footer {
 
 .project-title {
   /* text-decoration: none; */
-  color: white;
+  color: rgb(161, 159, 159);
   text-align: center;
-  height: 100px;
+  height: 50px;
   padding-left: 10px;
+  margin-top: 4px;
 
   display: flex;
   justify-content: space-between;
@@ -345,6 +369,8 @@ footer {
 .project-github {
   padding-right: 11px;
   margin-bottom: -4px;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(90deg)
+    brightness(50%) contrast(80%);
 }
 .project-github:hover {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(90deg)
@@ -392,7 +418,7 @@ footer {
 .test-box {
   width: 20%;
   /* width: 100%; */
-  height: 300px;
+  height: 280px;
   /* background: rgb(221, 221, 221); */
   box-shadow: 0px 10px 20px rgb(0, 0, 0);
   margin: 20px;
@@ -412,5 +438,33 @@ footer {
   .about-to-learn-box {
     width: 85%;
     margin-top: 40px;
+  }
+
+  .about-me-box {
+    margin-top: 0;
+  }
+
+  .msg-3 {
+    margin-top: -100px;
+    margin-bottom: 300px;
+  }
+  .msg-4 {
+    margin-bottom: -300px;
+  }
+  .screen-2-2 {
+    height: 112vh;
+    margin-bottom: 0;
+  }
+  .screen-2-4 {
+    /* background-color: #0c6fb2; */
+    border: none;
+  }
+
+  .about-container {
+    margin-bottom: -1px;
+  }
+
+  footer {
+    margin-top: -2px;
   }
 }

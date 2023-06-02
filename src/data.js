@@ -57,6 +57,14 @@ export default {
         image: "imagedata/hommestore.jpg",
         github: "https://github.com/muwaii/store-mockup",
       },
+      {
+        id: "8",
+        name: "Portfolito website",
+        description: "",
+        link: "https://muwaii.github.io/port2/",
+        image: "imagedata/thissite.jpg",
+        github: "https://github.com/muwaii/port2",
+      },
     ],
   },
 };
